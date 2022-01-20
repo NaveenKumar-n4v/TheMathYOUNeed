@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#include <iostream>
+// #include <string_view>
+#include <string>
+using namespace std;
+#define endl "\n"
+#define ll long long
+#define pb push_back
+#define array_size(type) ((char *)(&type+1)-(char*)(&type))
+#define MOD 1000000007
+// @defin
+#define mod 998244353
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr<<#x<<" "<<x<<endl;
+#else
+#define debug(x)
+#endif
+template<typename KeyType, typename v1ueType>
+std::pair<KeyType, v1ueType> get_max( const std::map<KeyType, v1ueType>& x ) {
+	using pairtype = std::pair<KeyType, v1ueType>;
+	return *std::max_element(x.begin(), x.end(), [] (const pairtype & p1, const pairtype & p2) {
+		return p1.second < p2.second;
+	});
+}
+// Readme.me // CLUE HIDDEN IN STORY // PATTERN == {Practice}
+void solve() {
+	int n;
+	cin >> n;
+	int count = 0;
+	for (int i = 1; i * i <= n; ++i)
+	{
+
+		if (n % i == 0) {
+			count ++;
+			if (i != n / i)
+				count += 1;
+		}
+	}
+	cout << count;
+}
+signed main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+#ifndef ONLINE_JUDGE
+	freopen("error.txt", "w", stderr);
+#endif
+	ll t = 1;
+	// cin >> t;
+	while (t--) solve();
+	return 0;
+}
